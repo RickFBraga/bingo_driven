@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mypostgres:
+    image: postgres:17
+    container_name: mypostgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 16052021
+      POSTGRES_DB: bingo_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d bingo_database"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: .
+    container_name: backend
+    restart: always
+    depends_on:
+      - mypostgres
+    environment:
+      DATABASE_URL: "postgresql://postgres:16052021@mypostgres:5432/bingo_database"
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:
+    driver: local
