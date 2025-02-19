@@ -15,11 +15,11 @@ export async function getBingoGameById(gameId: number, includeNumbers = false) {
   })
 }
 
-export async function setNumberForBingoGame(gameId: number, number: number) {
+export async function setNumberForBingoGame(gameId: number, number: null|number) {
   return await prisma.number.create({
     data: {
       gameId,
-      value: number
+      value: number || 1
     }
   })
 }

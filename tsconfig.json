@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "esModuleInterop": true,
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "baseUrl": "src",
+    "target": "es2020", // Or a suitable target version
+    "module": "commonjs", // Or "esnext" if you're using ES modules throughout
+    "outDir": "./dist", // Output directory for compiled JavaScript
+    "rootDir": "./src", // Root directory of your source files
+    "esModuleInterop": true, // Important for compatibility with CommonJS modules
+    "strict": true, // Enable strict type checking (recommended)
+    "noImplicitAny": true
   },
-  "ts-node": {
-    "esm": true
-  },
+  "include": [
+    "src/**/*.ts" // Include all TypeScript files in the src directory
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

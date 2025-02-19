@@ -2,13 +2,13 @@
   "name": "bingo-back-end",
   "version": "1.0.0",
   "scripts": {
-  "build": "tsc",
-  "start": "npm run prisma:migrate:deploy && node dist/src/server.js",
-  "dev": "nodemon src/server.ts",
-  "test": "dotenv -e .env.test npm run prisma:migrate:deploy & dotenv -e .env.test jest -- -i",
-  "prisma:migrate:dev": "prisma migrate dev",
-  "prisma:migrate:deploy": "prisma migrate deploy"
-},
+    "build": "tsc",
+    "start": "npm run prisma:migrate:deploy && node dist/src/server.js",
+    "dev": "nodemon src/server.ts",
+    "test": "dotenv -e .env.test npm run prisma:migrate:deploy & dotenv -e .env.test jest -- -i",
+    "prisma:migrate:dev": "prisma migrate dev",
+    "prisma:migrate:deploy": "prisma migrate deploy"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -41,6 +41,7 @@
     "nodemon": "^3.1.4",
     "prisma": "^5.16.1",
     "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.5.2"
   }

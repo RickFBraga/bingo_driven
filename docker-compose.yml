@@ -9,6 +9,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 16052021
       POSTGRES_DB: bingo_database
+    networks:
+     - xxxt
     ports:
       - "5432:5432"
     volumes:
@@ -28,8 +30,16 @@ services:
     environment:
       DATABASE_URL: "postgresql://postgres:16052021@mypostgres:5432/bingo_database"
     ports:
-      - "3000:3000"
+      - "5000:5000"
+    networks:
+     - xxxt
+    volumes:
+     - ./:/usr/src
 
 volumes:
   pgdata:
     driver: local
+
+networks:
+ xxxt:
+    driver: bridge
