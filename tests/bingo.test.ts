@@ -56,7 +56,7 @@ describe("POST /games/start", () => {
       const game = await prisma.game.findUnique({
         where: { id }
       });
-      expect(game.finished).toBe(true);
+      expect(game?.finished).toBe(true);
     });
 
     it("should return 404 if game is not found", async () => {

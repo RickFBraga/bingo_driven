@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(json());
 
-app.get("/health", (req: Request, res: Response) => res.status(httpStatus.OK).send(`I'm okay! xwx`));
+app.get("/health", (req: Request, res: Response) => res.status(httpStatus.OK).send(`I'm okay!`));
 
 app.use(bingoRouter);
 app.use(errorHandlerMiddleware);
